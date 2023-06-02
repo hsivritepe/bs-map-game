@@ -1,9 +1,9 @@
 
 import "./App.scss";
-import Mapbox from "./components/Map/Mapbox";
 
 import HomePage from "./components/HomePage";
 import GamePage from "./components/GamePage";
+import QuestionPage from "./components/QuestionPage";
 
 import getGeoLocationFromAPI from './utils'
 
@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/game" element={<GamePage />} />
-          <Route path="/game/questions" element={<Mapbox />} />
+          <Route path="/game/questions" element={<QuestionPage />} />
         </Routes>
       </div>
     </BrowserRouter>
