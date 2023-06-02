@@ -46,22 +46,7 @@ function Mapbox() {
         {markerLocation.map((element) => (
           <Marker latitude={element.latitude} longitude={element.longitude} />
         ))}
-        {/* {parkDate.features.map(park => (
-          <Marker
-            key={park.properties.PARK_ID}
-            latitude={park.geometry.coordinates[1]}
-            longitude={park.geometry.coordinates[0]}
-          >
-            <button
-              className="marker-btn"
-              onClick={e => {
-                e.preventDefault();
-                setSelectedPark(park);
-              }}
-            >
-            </button>
-          </Marker>
-        ))} */}
+
       </Map>
     </div>
   );
