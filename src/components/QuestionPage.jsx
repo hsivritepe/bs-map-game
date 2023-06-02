@@ -6,7 +6,11 @@ function QuestionPage() {
   const userName = "Michael";
 
   const handleNext = () => {
-    // Logic for handling the next button click
+    //TODO
+  };
+
+  const handleSubmit = () => {
+    //TODO
   };
 
   return (
@@ -17,7 +21,7 @@ function QuestionPage() {
 
         <p>User Name: {userName}</p>
         <p>Current Score: {currentScore}</p>
-        <button onClick={handleNext}>Submit</button>
+        <button onClick={handleSubmit}>Submit</button>
 
         <button onClick={handleNext}>Next</button>
       </div>
