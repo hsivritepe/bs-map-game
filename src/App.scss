@@ -1,0 +1,111 @@
+body {
+  background-image: url("./assets/homepagebackgroundimg.jpeg");
+  background-size: cover;
+}
+
+.homepage {
+  text-align: center;
+  padding-top: 9rem;
+
+  &__title {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco",
+      "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  }
+
+  &__description {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco",
+      "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  }
+
+  &__start-button {
+    padding: 10px 20px;
+    font-size: 3rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco",
+      "Helvetica Neue", "Helvetica", Arial, sans-serif;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  &__highest-score {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-top: 20px;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco",
+      "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  }
+}
+
+.game-page {
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco",
+    "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  text-align: center;
+  padding-top: 9rem;
+
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: white;
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+
+    label {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    input {
+      font-size: 2rem;
+      padding: 10px;
+      width: 300px;
+    }
+  }
+
+  button {
+    padding: 5px 10px;
+    font-size: 2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+
+  &__instructions {
+    padding-top: 9rem;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+  }
+}
