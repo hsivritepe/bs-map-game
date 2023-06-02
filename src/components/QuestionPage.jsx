@@ -1,16 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Map, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import cityData from "../data/cities.json";
+import { getGeoLocationFromAPI } from "../utils";
 
 function QuestionPage() {
   console.log("trying to load map");
 
+  const [currentCity, setCurrentCity] = useState("");
+  useEffect(() => {
+    let cityIndex = Math.floor(Math.random() * cityData.length);
+    setCurrentCity(cityData[cityIndex].name);
+  }, []);
   // TEMPORARY
-  const currentCity = "New York";
-  const currentScore = 500;
-  const userName = "Michael";
+  // const currentCity = cityData[cityIndex].name;
+
+  // getGeoLocationFromAPI(currentCity, (response) => {
+  //   console.log(response);
+  // });
+
   const cityLat = 45.4211;
   const cityLng = -75.6903;
+
+  const userName = "Michael";
   let userScore = 0;
 
   const [showUserMarker, setShowUserMarker] = useState(true);
@@ -21,6 +33,8 @@ function QuestionPage() {
     console.log("next button clicked");
     setShowAnswerMarker(false);
     setShowUserMarker(false);
+    let cityIndex = Math.floor(Math.random() * cityData.length);
+    setCurrentCity(cityData[cityIndex].name);
   };
 
   const handleSubmit = () => {
@@ -57,7 +71,7 @@ function QuestionPage() {
         <h2>Current City:</h2>
         <h1>{currentCity}</h1>
         <p>User Name: {userName}</p>
-        <p>Current Score: {currentScore}</p>
+        <p>Current Score: {userScore}</p>
         <button onClick={handleSubmit}>Submit</button>
         <button onClick={handleNext}>Next</button>
       </div>
