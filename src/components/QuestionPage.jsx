@@ -3,10 +3,24 @@ import MapBox from "./Map/Mapbox";
 import Map, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import cityData from "../data/cities.json";
-import { getGeoLocationFromAPI } from "../utils";
+
+import {
+  getGeoLocationFromAPI,
+  updateUsersScore,
+  getUsersForScoreboardOrderedForScore,
+  registerUser,
+} from "../utils";
 
 function QuestionPage() {
+  useEffect(() => {
+    getCityName();
+  }, []);
+
   const currentScore = 0;
+
+  const [userScore, setUserScore] = useState(0);
+  const [tempScore, setTempScore] = useState(0);
+
   const [userName, setUserName] = useState("");
   useEffect(() => {
     const userName = localStorage.getItem("userName");
@@ -19,26 +33,49 @@ function QuestionPage() {
     setCurrentCity(cityData[cityIndex].name);
   }, []);
 
-  const cityLat = 45.4211;
-  const cityLng = -75.6903;
-
-  let userScore = 0;
+  //   const cityLat = 45.4211;
+  //   const cityLng = -75.6903;
 
   const [showUserMarker, setShowUserMarker] = useState(true);
   const [showAnswerMarker, setShowAnswerMarker] = useState(false);
   const [markerLocation, setMarkerLocation] = useState([]);
+  const [answerMarkerLocation, setAnswerMarkerLocation] = useState([]);
+  //   const [numberOfQ, setNumberOfQ] = useState(0);
+
+  const getCityName = () => {
+    let cityIndex = Math.floor(Math.random() * cityData.length);
+    setCurrentCity(cityData[cityIndex].name);
+  };
+
+  useEffect(() => {
+    if (currentCity.length) {
+      getGeoLocationFromAPI(currentCity, (response) => {
+        console.log(response);
+        setAnswerMarkerLocation([
+          { latitude: response[0].lat, longitude: response[0].lon },
+        ]);
+      });
+    }
+  }, [currentCity]);
 
   const handleNext = () => {
     console.log("next button clicked");
     setShowAnswerMarker(false);
     setShowUserMarker(false);
-    let cityIndex = Math.floor(Math.random() * cityData.length);
-    setCurrentCity(cityData[cityIndex].name);
+    getCityName();
+    // let cityIndex = Math.floor(Math.random() * cityData.length);
+    // setCurrentCity(cityData[cityIndex].name);
   };
 
   const handleSubmit = () => {
     console.log("submit button clicked");
     setShowAnswerMarker(true);
+
+    setUserScore(parseInt(userScore) + parseInt(tempScore));
+    updateUsersScore(localStorage.getItem("userId"), {
+      name: localStorage.getItem("name"),
+      score: userScore,
+    });
   };
 
   const handleUserClick = (event) => {
@@ -48,18 +85,21 @@ function QuestionPage() {
     setMarkerLocation([
       { latitude: clickLocation.lat, longitude: clickLocation.lng },
     ]);
-    calculateUserScore(clickLocation);
+    setTempScore(calculateUserScore(clickLocation));
+    console.log(calculateUserScore(clickLocation));
   };
 
   const calculateUserScore = (clickLocation) => {
-    const latDif = clickLocation.lat - cityLat;
-    const lngDif = clickLocation.lng - cityLng;
+    const latDif = clickLocation.lat - answerMarkerLocation[0].latitude;
+    const lngDif = clickLocation.lng - answerMarkerLocation[0].longitude;
 
     const score = Math.sqrt(Math.pow(latDif, 2) + Math.pow(lngDif, 2)).toFixed(
       2
     );
-    userScore += score;
-    console.log("user score is", score);
+
+    return score;
+
+    // console.log("user score is", score);
     // THIS IS THE SEND SCORE FOR LATER
     // props.sendScore(score);
   };
@@ -98,7 +138,11 @@ function QuestionPage() {
 
           {/* ANSWER MARKER */}
           {showAnswerMarker && (
-            <Marker latitude={cityLat} longitude={cityLng} key={"answer"} />
+            <Marker
+              latitude={answerMarkerLocation[0].latitude}
+              longitude={answerMarkerLocation[0].longitude}
+              key={"answer"}
+            />
           )}
         </Map>
       </div>
