@@ -1,14 +1,34 @@
-import "./App.scss";
+import './App.scss';
+import Mapbox from './components/Map/Mapbox';
 
-import HomePage from "./components/HomePage";
-import GamePage from "./components/GamePage";
+import HomePage from './components/HomePage';
+import GamePage from './components/GamePage';
+
+import {
+    getGeoLocationFromAPI,
+    updateUsersScore,
+    getUsersForScoreboardOrderedForScore,
+    registerUser,
+} from './utils';
+
 import QuestionPage from "./components/QuestionPage";
 
-import getGeoLocationFromAPI from "./utils";
-
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import {
+    BrowserRouter,
+    Route,
+    Routes,
+    Navigate,
+} from 'react-router-dom';
 
 function App() {
+    // // Examples to use the finctions
+    // registerUser('testqewrqw');
+    // getUsersForScoreboardOrderedForScore();
+    // updateUsersScore('bde3e1f9-1f21-4da1-80e4-72345bd22ae8', {
+    //     name: 'testqewrqw',
+    //     score: 100,
+    // });
+
   return (
     <BrowserRouter>
       <div className="App">
