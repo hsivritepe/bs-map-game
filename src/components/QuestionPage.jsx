@@ -3,7 +3,7 @@ import MapBox from "./Map/Mapbox";
 import Map, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import cityData from "../data/cities.json";
-
+import { useNavigate } from "react-router-dom";
 import {
   getGeoLocationFromAPI,
   updateUsersScore,
@@ -12,6 +12,7 @@ import {
 } from "../utils";
 
 function QuestionPage() {
+  const navigate = useNavigate();
   useEffect(() => {
     getCityName();
   }, []);
@@ -40,7 +41,8 @@ function QuestionPage() {
   const [showAnswerMarker, setShowAnswerMarker] = useState(false);
   const [markerLocation, setMarkerLocation] = useState([]);
   const [answerMarkerLocation, setAnswerMarkerLocation] = useState([]);
-  //   const [numberOfQ, setNumberOfQ] = useState(0);
+  const [numberOfQ, setNumberOfQ] = useState(0);
+  //   console.log(numberOfQ);
 
   const getCityName = () => {
     let cityIndex = Math.floor(Math.random() * cityData.length);
@@ -63,8 +65,11 @@ function QuestionPage() {
     setShowAnswerMarker(false);
     setShowUserMarker(false);
     getCityName();
-    // let cityIndex = Math.floor(Math.random() * cityData.length);
-    // setCurrentCity(cityData[cityIndex].name);
+    console.log("FFF : " + numberOfQ);
+    if (numberOfQ > 2) {
+      //   console.log("done");
+      navigate("/result");
+    }
   };
 
   const handleSubmit = () => {
@@ -76,6 +81,7 @@ function QuestionPage() {
       name: localStorage.getItem("name"),
       score: userScore,
     });
+    setNumberOfQ(numberOfQ + 1);
   };
 
   const handleUserClick = (event) => {

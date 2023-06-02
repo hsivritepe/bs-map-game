@@ -38,14 +38,15 @@ export function registerUser(name, callback) {
       callback(response.data);
     });
 }
-export function getUsersForScoreboardOrderedForScore() {
+export function getUsersForScoreboardOrderedForScore(callback) {
   axios.get("http://localhost:8888/users").then((response) => {
     response.data.sort((a, b) => a.score - b.score);
 
     // Returning the top 10 users
     const top10Users = response.data.slice(0, 10);
-    console.log(response.data);
-    console.log(top10Users);
+    // console.log(response.data);
+    // console.log(top10Users);
+    callback(top10Users);
   });
 }
 
