@@ -1,7 +1,11 @@
 import logo from './logo.svg';
 import './App.scss';
+import getGeoLocationFromAPI from './utils'
 
 function App() {
+  getGeoLocationFromAPI('Los Angeles', (cityData)=>{
+    console.log(cityData)
+  })
     return (
         <div className="App">
             <header className="App-header">
