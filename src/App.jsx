@@ -1,11 +1,10 @@
-
 import "./App.scss";
 import Mapbox from "./components/Map/Mapbox";
 
 import HomePage from "./components/HomePage";
 import GamePage from "./components/GamePage";
 
-import getGeoLocationFromAPI from './utils'
+import getGeoLocationFromAPI from "./utils";
 
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
@@ -17,7 +16,10 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/game" element={<GamePage />} />
-          <Route path="/game/questions" element={<Mapbox />} />
+          <Route
+            path="/game/questions"
+            element={<Mapbox getGeoLocationFromAPI={getGeoLocationFromAPI} />}
+          />
         </Routes>
       </div>
     </BrowserRouter>

@@ -5,6 +5,11 @@ import "mapbox-gl/dist/mapbox-gl.css";
 // import { tsCallSignatureDeclaration } from "@babel/types";
 
 function Mapbox(props) {
+  let cityLocation = "";
+  props.getGeoLocationFromAPI("ottawa", (cityData) => {
+    cityLocation = cityData;
+  });
+  console.log(cityLocation);
   // const [viewport, setViewport] = useState({
   //   latitude: 45.4211,
   //   longitude: -75.6903,
