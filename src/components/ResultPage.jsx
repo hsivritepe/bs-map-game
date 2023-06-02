@@ -25,7 +25,7 @@ function ResultPage() {
         // <div>heldsadalo</div>;
         console.log("result is", result);
 
-        result.map((item) => {
+        result.map((item) => ()
           return <div>{item.id}</div>;
         });
       })}
