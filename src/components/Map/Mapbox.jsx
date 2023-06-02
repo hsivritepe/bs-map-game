@@ -64,7 +64,7 @@ function Mapbox(props) {
   };
 
   return (
-    <div>
+    <div className="mapbox">
       <Map
         initialViewState={{ latitude: 45.4211, longitude: -75.6903, zoom: 2 }}
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
