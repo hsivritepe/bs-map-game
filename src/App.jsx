@@ -14,6 +14,7 @@ import {
 import QuestionPage from "./components/QuestionPage";
 
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import ResultPage from "./components/ResultPage";
 
 function App() {
   // // Examples to use the finctions
@@ -31,6 +32,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/game" element={<GamePage />} />
+          <Route path="/result" element={<ResultPage />} />
           <Route path="/game/questions" element={<QuestionPage />} />
         </Routes>
       </div>
