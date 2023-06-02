@@ -3,6 +3,7 @@ import MapBox from "./Map/Mapbox";
 function QuestionPage() {
   const currentCity = "New York";
   const currentScore = 500;
+  const userName = "Michael";
 
   const handleNext = () => {
     // Logic for handling the next button click
@@ -14,6 +15,7 @@ function QuestionPage() {
         <h2>Current City:</h2>
         <h1>{currentCity}</h1>
 
+        <p>User Name: {userName}</p>
         <p>Current Score: {currentScore}</p>
         <button onClick={handleNext}>Submit</button>
 
