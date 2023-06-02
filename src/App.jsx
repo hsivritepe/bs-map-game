@@ -11,6 +11,8 @@ import {
     registerUser,
 } from './utils';
 
+import QuestionPage from "./components/QuestionPage";
+
 import {
     BrowserRouter,
     Route,
@@ -27,24 +29,18 @@ function App() {
     //     score: 100,
     // });
 
-    return (
-        <BrowserRouter>
-            <div className="App">
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route
-                        path="/home"
-                        element={<Navigate to="/" />}
-                    />
-                    <Route path="/game" element={<GamePage />} />
-                    <Route
-                        path="/game/questions"
-                        element={<Mapbox />}
-                    />
-                </Routes>
-            </div>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<Navigate to="/" />} />
+          <Route path="/game" element={<GamePage />} />
+          <Route path="/game/questions" element={<QuestionPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;
