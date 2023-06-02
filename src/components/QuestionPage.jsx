@@ -1,9 +1,14 @@
+import { useState, useEffect } from "react";
 import MapBox from "./Map/Mapbox";
 
 function QuestionPage() {
   const currentCity = "New York";
-  const currentScore = 500;
-  const userName = "Michael";
+  const currentScore = 0;
+  const [userName, setUserName] = useState("");
+  useEffect(() => {
+    const userName = localStorage.getItem("userName");
+    setUserName(userName);
+  }, []);
 
   const handleNext = () => {
     //TODO

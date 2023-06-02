@@ -1,7 +1,17 @@
 import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+
+import {
+  getGeoLocationFromAPI,
+  updateUsersScore,
+  getUsersForScoreboardOrderedForScore,
+  registerUser,
+} from "../utils";
 
 function GamePage() {
   const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [id, setId] = useState("");
 
   return (
     <div className="game-page">
@@ -9,12 +19,26 @@ function GamePage() {
 
       <div className="input-group">
         <label htmlFor="name">Your Name:</label>
-        <input type="text" id="name" />
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={(event) => {
+            setName(event.target.value);
+          }}
+        />
       </div>
 
       <button
         className="gamepage__start-button"
-        onClick={() => navigate("/game/questions")}
+        onClick={() => {
+          registerUser(name, (data) => {
+            setId(data.id);
+            localStorage.setItem("userId", data.id);
+            localStorage.setItem("userName", data.name);
+            navigate("/game/questions");
+          });
+        }}
       >
         Start Game
       </button>
