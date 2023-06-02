@@ -1,8 +1,11 @@
+
 import "./App.scss";
 import Mapbox from "./components/Map/Mapbox";
 
 import HomePage from "./components/HomePage";
 import GamePage from "./components/GamePage";
+
+import getGeoLocationFromAPI from './utils'
 
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
