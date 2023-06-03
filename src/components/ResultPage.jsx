@@ -6,31 +6,37 @@ import {
 } from "../utils";
 
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function ResultPage() {
   const navigate = useNavigate();
-  // const result = getUsersForScoreboardOrderedForScore();
+  const [userScores, setUserScores] = useState([]);
+
+  useEffect(() => {
+    getUsersForScoreboardOrderedForScore((result) => {
+      console.log(result);
+      setUserScores(result);
+    });
+  }, []);
+
   return (
-    <div className="homepage">
-      <h1 className="homepage__title">Welcome to the Map Game</h1>
-      <p className="homepage__description">Can you locate cities on the map?</p>
+    <div className="homepage ">
+      <h1 className="homepage__title">Game Board</h1>
+      <p className="homepage__description">Here is the score</p>
 
       <button className="homepage__start-button" onClick={() => navigate("/")}>
         Start
       </button>
-      {/* {result?.map((item) => {
-        return <div>{item.id}</div>;
-      })} */}
-      {getUsersForScoreboardOrderedForScore((result) => {
-        // <div>heldsadalo</div>;
-        console.log("result is", result);
 
-        result.map((item) => {
-          return <div>{item.id}</div>;
-        });
-      })}
-
-      <p className="homepage__highest-score">Highest Score: </p>
+      <div className="resultpage homepage__highest-score">
+        {userScores.map((item) => (
+          <div key={item.id}>
+            <p>
+              User Name: {item.name}, Score: {item.score}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
