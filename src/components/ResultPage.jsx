@@ -1,38 +1,65 @@
 import {
-  getGeoLocationFromAPI,
-  updateUsersScore,
-  getUsersForScoreboardOrderedForScore,
-  registerUser,
-} from "../utils";
+    getGeoLocationFromAPI,
+    updateUsersScore,
+    getUsersForScoreboardOrderedForScore,
+    registerUser,
+} from '../utils';
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 function ResultPage() {
-  const navigate = useNavigate();
-  // const result = getUsersForScoreboardOrderedForScore();
-  return (
-    <div className="homepage">
-      <h1 className="homepage__title">Welcome to the Map Game</h1>
-      <p className="homepage__description">Can you locate cities on the map?</p>
+    const [userResult, setUserResult] = useState();
+    const navigate = useNavigate();
+    // const result = getUsersForScoreboardOrderedForScore();
 
-      <button className="homepage__start-button" onClick={() => navigate("/")}>
-        Start
-      </button>
-      {/* {result?.map((item) => {
-        return <div>{item.id}</div>;
-      })} */}
-      {getUsersForScoreboardOrderedForScore((result) => {
-        // <div>heldsadalo</div>;
-        console.log("result is", result);
-
-        result.map((item) => ()
-          return <div>{item.id}</div>;
+    useEffect(() => {
+        getUsersForScoreboardOrderedForScore((response) => {
+            setUserResult(response);
+            // console.log(response);
         });
-      })}
+    });
 
-      <p className="homepage__highest-score">Highest Score: </p>
-    </div>
-  );
+    return (
+        <div className="homepage">
+            <h1 className="homepage__title">
+                Here is the top 10 players of the game
+            </h1>
+            <div className="scoreboard">
+                <div className="scoreboard__head">
+                    <p className="scoreboard__column">ID</p>
+                    <p className="scoreboard__column">Name</p>
+                    <p className="scoreboard__column">Score</p>
+                </div>
+                {userResult &&
+                    userResult.map((user) => {
+                        return (
+                            <div
+                                className="scoreboard__item"
+                                key={user.id}
+                            >
+                                <p className="scoreboard__column">
+                                    {user.id}
+                                </p>
+                                <p className="scoreboard__column">
+                                    {user.name}
+                                </p>
+                                <p className="scoreboard__column">
+                                    {user.score}
+                                </p>
+                            </div>
+                        );
+                    })}
+            </div>
+
+            <button
+                className="homepage__start-button"
+                onClick={() => navigate('/game')}
+            >
+                Start
+            </button>
+        </div>
+    );
 }
 
 export default ResultPage;
