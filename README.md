@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+<br/>
+<p align="center">
+  <h3 align="center">BS Map Game</h3>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <p align="center">
+    A 6 hrs hackathon project about locating the cities on Earth!
+    <br/>
+    <br/>
+    <a href="https://github.com/hsivritepe/bs-map-game"><strong>Explore the docs »</strong></a>
+    <br/>
+    <br/>
+    <a href="https://github.com/hsivritepe/bs-map-game">View Demo</a>
+    .
+    <a href="https://github.com/hsivritepe/bs-map-game/issues">Report Bug</a>
+    .
+    <a href="https://github.com/hsivritepe/bs-map-game/issues">Request Feature</a>
+  </p>
+</p>
 
-## Available Scripts
+![Downloads](https://img.shields.io/github/downloads/hsivritepe/bs-map-game/total) ![Contributors](https://img.shields.io/github/contributors/hsivritepe/bs-map-game?color=dark-green) ![Issues](https://img.shields.io/github/issues/hsivritepe/bs-map-game) ![License](https://img.shields.io/github/license/hsivritepe/bs-map-game)
+
+## Table Of Contents
+
+-   [About the Project](#about-the-project)
+-   [Built With](#built-with)
+-   [Getting Started](#getting-started)
+    -   [Prerequisites](#prerequisites)
+    -   [Installation](#installation)
+-   [Contributing](#contributing)
+-   [License](#license)
+-   [Authors](#authors)
+-   [Acknowledgements](#acknowledgements)
+
+## About The Project
+
+![Screen Shot](https://raw.githubusercontent.com/hsivritepe/bs-map-game/main/public/bs-map-game-screenshot.jpeg)
+
+This is a 6 hrs Hackathon project where you play a Map Game. In the game, you are trying pin as close as possible to the target city. The lower the score the better score you get.
+
+This project has an API repo, [BS GAME API](https://github.com/hsivritepe/bs-map-game-api), that feeds the data, hall of fame and scores from DB.
+
+## Built With
+
+This section should list any major frameworks that you built your project using.
+
+-   JavaScript
+-   Node.js
+-   Express.js
+-   SCSS
+-   CSS
+
+## Getting Started
+
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+No prerequisites but a note that this is a feed data, API creation project for the frontend page stated above.
+
+### Installation
 
 In the project directory, you can run:
 
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The server will run at [http://localhost:8080](http://localhost:8080).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Contributing
 
-### `npm test`
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/hsivritepe/bs-map-game/issues/new) to discuss it, or directly create a pull request after you edit the _README.md_ file with necessary changes.
+-   Please make sure you check your spelling and grammar.
+-   Create individual PR for each suggestion.
+-   Please also read through the [Code Of Conduct](https://github.com/hsivritepe/bs-map-game/blob/main/CODE_OF_CONDUCT.md) before posting your first idea as well.
 
-### `npm run build`
+### Creating A Pull Request
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## License
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/hsivritepe/bs-map-game/blob/main/LICENSE.md) for more information.
 
-### `npm run eject`
+## Authors
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-   **Hakan Sivritepe** - _Software Developer_ - [Hakan Sivritepe](https://github.com/hsivritepe/) - _Built BS Map Game_
+-   **Nick Seale** - _Developer_ - [Nick Seale](https://github.com/NickSeale) - _Built BS Map Game_
+-   **Tristan Pernot** - _Developer_ - [Tristan Pernot](https://github.com/TristanPernot) - _Built BS Map Game_
+-   **Sunny Yutain** - _Developer_ - [Sunny Yutain](https://github.com/sunnyyutianxie) - _Built BS Map Game_

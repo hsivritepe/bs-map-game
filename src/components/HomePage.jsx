@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
-    const highestScore = 1000; //highestScore so far
     const navigate = useNavigate();
 
     return (

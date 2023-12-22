@@ -1,9 +1,4 @@
-import {
-    getGeoLocationFromAPI,
-    updateUsersScore,
-    getUsersForScoreboardOrderedForScore,
-    registerUser,
-} from '../utils';
+import { getUsersForScoreboardOrderedForScore } from '../utils';
 
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -11,12 +6,10 @@ import { useEffect, useState } from 'react';
 function ResultPage() {
     const [userResult, setUserResult] = useState();
     const navigate = useNavigate();
-    // const result = getUsersForScoreboardOrderedForScore();
 
     useEffect(() => {
         getUsersForScoreboardOrderedForScore((response) => {
             setUserResult(response);
-            // console.log(response);
         });
     });
 

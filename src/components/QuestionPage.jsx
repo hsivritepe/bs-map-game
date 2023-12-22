@@ -1,23 +1,15 @@
 import { useState, useEffect } from 'react';
-import MapBox from './Map/Mapbox';
 import Map, { Marker } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import cityData from '../data/cities.json';
 import { useNavigate } from 'react-router-dom';
-import {
-    getGeoLocationFromAPI,
-    updateUsersScore,
-    getUsersForScoreboardOrderedForScore,
-    registerUser,
-} from '../utils';
+import { getGeoLocationFromAPI, updateUsersScore } from '../utils';
 
 function QuestionPage() {
     const navigate = useNavigate();
     useEffect(() => {
         getCityName();
     }, []);
-
-    const currentScore = 0;
 
     const [userScore, setUserScore] = useState(0);
     const [tempScore, setTempScore] = useState(0);
@@ -33,9 +25,6 @@ function QuestionPage() {
         let cityIndex = Math.floor(Math.random() * cityData.length);
         setCurrentCity(cityData[cityIndex].name);
     }, []);
-
-    //   const cityLat = 45.4211;
-    //   const cityLng = -75.6903;
 
     const [showUserMarker, setShowUserMarker] = useState(true);
     const [showAnswerMarker, setShowAnswerMarker] = useState(false);
@@ -80,8 +69,6 @@ function QuestionPage() {
         console.log(localStorage.getItem('userId'));
 
         if (numberOfQ > 2) {
-            //   console.log("done");
-            // alert('Game Over');
             navigate('/result');
         }
     };
@@ -120,10 +107,6 @@ function QuestionPage() {
         ).toFixed(2);
 
         return score;
-
-        // console.log("user score is", score);
-        // THIS IS THE SEND SCORE FOR LATER
-        // props.sendScore(score);
     };
 
     return (
